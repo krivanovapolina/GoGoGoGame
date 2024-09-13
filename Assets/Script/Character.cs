@@ -1,19 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
-public class CharacterMove : MonoBehaviour
+public class Character : MonoBehaviour
 {
     [SerializeField]
     float moveSpeed = 5f;
     CharacterController controller;
     Vector2 moveDirection;
+    Vector3 mouseDirection;
     float moveX;
     float moveY;
     Animator animator;
+    private float speedBullet = 5f;
+    private float lastAttack = -999f;
+    private float cooldown = 8f;
 
     float idleMoveX;
     float idleMoveY;
+
+    public GameObject bulletPref;
+    //public GameObject shootPoint;
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -36,6 +45,10 @@ public class CharacterMove : MonoBehaviour
         {
             Animate(idleMoveX, idleMoveY, 0);
         }
+        if (Input.GetMouseButtonDown(0))
+            Attack();
+        else
+            animator.SetBool("IsAttack", false);
     }
 
     private void FixedUpdate()
@@ -59,5 +72,28 @@ public class CharacterMove : MonoBehaviour
         }
         animator.SetFloat("MoveX", moveX);
         animator.SetFloat("MoveY", moveY);
+    }
+
+    private void Attack()
+    {
+        if (Time.time > lastAttack + cooldown)
+        {
+            animator.SetBool("IsAttack", true);
+            animator.SetFloat("MoveX", idleMoveX);
+            animator.SetFloat("MoveX", idleMoveY);
+
+            mouseDirection = Input.mousePosition;
+            Debug.Log(mouseDirection);
+            mouseDirection.z = 0f;
+            mouseDirection = Camera.main.ScreenToWorldPoint(mouseDirection);
+            Debug.Log(mouseDirection);
+            mouseDirection = mouseDirection - transform.position;
+
+            GameObject bulletInstance = Instantiate(bulletPref, transform.position, Quaternion.identity);
+            bulletInstance.GetComponent<Rigidbody2D>().velocity = mouseDirection * speedBullet;
+
+            Destroy(bulletInstance, 4);
+            lastAttack = Time.time;
+        }
     }
 }
