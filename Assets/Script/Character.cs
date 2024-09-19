@@ -23,7 +23,7 @@ public class CharacterMove : MonoBehaviour
     float moveY;
 
     bool canShoot = true;
-    int gunType = 0;
+    GunType gunType = GunType.Pistol;
     [Header("Melee Attack")]
     [SerializeField] Transform meleeAttackPoint;
     [SerializeField] float meleeAttackRange = 1f;
