@@ -130,13 +130,13 @@ public class CharacterMove : MonoBehaviour
             animator.SetBool("IsAttack", true);
         }
           
-        else if (Input.GetMouseButtonUp(0) && canShoot && gunType == GunType.Knife)
+        else if (Input.GetMouseButtonDown(0) && canShoot && gunType == GunType.Knife)
         {
             animator.SetFloat("ShootX", GetShootingDirection().x);
             animator.SetFloat("ShootY", GetShootingDirection().y);
             MeleeAttack();
         }
-        else if (Input.GetMouseButtonDown(0))
+        else if (Input.GetMouseButtonUp(0))
         {
             animator.SetBool("IsAttack", false);
             canShoot = true;
