@@ -5,8 +5,11 @@ using UnityEngine;
 public class CharacterMove : MonoBehaviour
 {
     [Header("Movement Settings")]
-    [SerializeField] float moveSpeed = 5f;
-    [SerializeField] float cooldown = 3f;
+    [SerializeField] float moveSpeed = 7f;
+    [SerializeField] float cooldown = 1f;
+
+    [Header("Bullet")]
+    [SerializeField] float speedBullet = 7f;
 
     [Header("References")]
     [SerializeField] GameObject bulletPref;
@@ -40,15 +43,11 @@ public class CharacterMove : MonoBehaviour
         HandleMovementInput();
         HandleAnimation();
         HandleChangeGun();
-
-        if (Input.GetMouseButtonDown(0) && canShoot)
-            StartCoroutine(Attack());
-
+        HandleAttack();
     }
 
     void FixedUpdate()
     {
-
         controller.Move(moveDirection * moveSpeed * Time.deltaTime);
     }
 
@@ -104,58 +103,70 @@ public class CharacterMove : MonoBehaviour
 
     public void Shoot()
     {
-
-        Vector3 shootingDirection = GetShootingDirection();
-        GameObject bulletInstance = Instantiate(bulletPref, transform.position + GetShootingDirection(), Quaternion.identity);
-
-        bulletInstance.GetComponent<Rigidbody2D>().velocity = shootingDirection * 5f;
-
-        float angle = Mathf.Atan2(shootingDirection.y, shootingDirection.x) * Mathf.Rad2Deg;
-        bulletInstance.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-
-        Destroy(bulletInstance, 4f);
-    }
-
-    IEnumerator Attack()
-    {
-        canShoot = false;
-
-
-        animator.SetFloat("ShootX", GetShootingDirection().x);
-        animator.SetFloat("ShootY", GetShootingDirection().y);
-
-        switch (gunType)
+        if (canShoot)
         {
-            case 0:
 
-                animator.SetBool("IsAttack", true);
+            Vector3 shootingDirection = GetShootingDirection();
+            GameObject bulletInstance = Instantiate(bulletPref, transform.position + GetShootingDirection(), Quaternion.identity);
 
-                //Shoot();
-                break;
-            case 1:
-                animator.SetTrigger("Melee");
-                Collider2D enemy = Physics2D.OverlapCircle(meleeAttackPoint.position, meleeAttackRange);
-                Debug.Log(enemy.name);
-                break;
+            bulletInstance.GetComponent<Rigidbody2D>().velocity = shootingDirection * speedBullet;
+
+            float angle = Mathf.Atan2(shootingDirection.y, shootingDirection.x) * Mathf.Rad2Deg;
+            bulletInstance.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+
+            Destroy(bulletInstance, 4f);
+            canShoot = false;
 
         }
+    }
 
-        yield return new WaitForSeconds(cooldown);
 
-        animator.SetBool("IsAttack", false);
-
-        canShoot = true;
+    void HandleAttack()
+    {
+        if (Input.GetMouseButtonDown(0) && canShoot && gunType == GunType.Pistol)
+        {
+            animator.SetFloat("ShootX", GetShootingDirection().x);
+            animator.SetFloat("ShootY", GetShootingDirection().y);
+            animator.SetBool("IsAttack", true);
+        }
+          
+        else if (Input.GetMouseButtonUp(0) && canShoot && gunType == GunType.Knife)
+        {
+            animator.SetFloat("ShootX", GetShootingDirection().x);
+            animator.SetFloat("ShootY", GetShootingDirection().y);
+            MeleeAttack();
+        }
+        else if (Input.GetMouseButtonDown(0))
+        {
+            animator.SetBool("IsAttack", false);
+            canShoot = true;
+        }
+        
     }
 
     void HandleChangeGun()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
-            gunType = 0;
+            gunType = GunType.Pistol;
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            gunType = 1;
+            gunType = GunType.Knife;
         }
         Debug.Log(gunType);
+    }
+
+    private void MeleeAttack()
+    {
+        animator.SetTrigger("Melee");
+        Collider2D enemy = Physics2D.OverlapCircle(meleeAttackPoint.position, meleeAttackRange);
+        if (enemy != null)
+        {
+            Debug.Log(enemy.name);
+        }
+        else
+        {
+            Debug.Log("2");
+        }
     }
 
     private void OnDrawGizmosSelected()

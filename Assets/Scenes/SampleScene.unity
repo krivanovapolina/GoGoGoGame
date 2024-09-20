@@ -296,6 +296,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1233859248650605991, guid: b5c4e375808950b40ae90dd7f9ce3e9a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2953567680761447095, guid: b5c4e375808950b40ae90dd7f9ce3e9a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -363,6 +367,18 @@ PrefabInstance:
     - target: {fileID: 8417655837569812303, guid: b5c4e375808950b40ae90dd7f9ce3e9a, type: 3}
       propertyPath: m_Name
       value: Character
+      objectReference: {fileID: 0}
+    - target: {fileID: 8524215233335396750, guid: b5c4e375808950b40ae90dd7f9ce3e9a, type: 3}
+      propertyPath: cooldown
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8524215233335396750, guid: b5c4e375808950b40ae90dd7f9ce3e9a, type: 3}
+      propertyPath: moveSpeed
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8524215233335396750, guid: b5c4e375808950b40ae90dd7f9ce3e9a, type: 3}
+      propertyPath: speedBullet
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
