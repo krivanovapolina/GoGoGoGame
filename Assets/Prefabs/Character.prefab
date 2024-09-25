@@ -69,7 +69,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 7.524519
+  orthographic size: 8.719172
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -149,8 +149,10 @@ GameObject:
   - component: {fileID: 6295514114290102496}
   - component: {fileID: 2158870402228681154}
   - component: {fileID: 6404516227443700900}
-  - component: {fileID: 5153986563068291501}
-  - component: {fileID: 3018670836404709694}
+  - component: {fileID: 5480233454307377111}
+  - component: {fileID: 6504685268320231836}
+  - component: {fileID: 4675425694966366839}
+  - component: {fileID: 7142955705138478675}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -274,7 +276,19 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5153986563068291501
+--- !u!114 &5480233454307377111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8417655837569812303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94042f826c38147bcbfbff42f9ed02ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6504685268320231836
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -286,14 +300,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 408981f513ebcbc45821223bc4cc038b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 7
-  bulletPref: {fileID: 3038050592022256576, guid: 30d5e994cae10c342b5675c28cb3822a, type: 3}
+  moveSpeed: 5
   mouseDirection: {x: 0, y: 0, z: 0}
-  canShoot: 1
-  meleeAttackPoint: {fileID: 3260772070895951522}
-  meleeAttackRange: 1
-  gunType: 1
---- !u!114 &3018670836404709694
+--- !u!114 &4675425694966366839
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -302,7 +311,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 8417655837569812303}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f656ce22a1218db489eb968c48ca35cb, type: 3}
+  m_Script: {fileID: 11500000, guid: cd37b873a89c5ec45ab3cff2c5786835, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meleeAttackPoint: {fileID: 3260772070895951522}
+  meleeAttackRange: 1
+  bulletPref: {fileID: 3038050592022256576, guid: 30d5e994cae10c342b5675c28cb3822a, type: 3}
+  canShoot: 1
+  gunType: 1
+--- !u!114 &7142955705138478675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8417655837569812303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cac9e201cf82b4186a3753524837397a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1824742771939104449
