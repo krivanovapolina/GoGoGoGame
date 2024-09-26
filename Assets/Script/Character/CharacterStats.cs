@@ -14,12 +14,13 @@ public class CharacterStats : MonoBehaviour
     public int Level { get; set; } = 1;
     public int Armor { get; set; }
     public int MaxArmor { get; set; } = 100;
+    public int Money { get; set; } = 0;
 
     CharacterStats()
     {
        this.Hp = this.MaxHp;
        this.Ammo = this.MaxAmmo;
-       this.Armor = this.MaxArmor;
+       //this.Armor = this.MaxArmor;
     }
 
 
