@@ -19,5 +19,5 @@ MonoBehaviour:
   Damag: 10
   AttackSpeed: 5
   ReloadTime: 2
-  GunType: 0
-  ProjectilePrefab: {fileID: 0}
+  GunType: 1
+  ProjectilePrefab: {fileID: 3038050592022256576, guid: 30d5e994cae10c342b5675c28cb3822a, type: 3}
