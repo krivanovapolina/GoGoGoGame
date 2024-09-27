@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 216ded1c35952fe48b996cf3ce82d16d, type: 3}
   m_Name: CrossBow
   m_EditorClassIdentifier: 
-  Ammo: 1
-  MaxAmmo: 5
-  LimitMaxAmmo: 10
-  Magazine: 1
+  Ammo: 50
+  MaxAmmo: 100
+  LimitMaxAmmo: 200
+  Magazine: 100
   Damag: 15
   AttackSpeed: 5
   ReloadTime: 2
