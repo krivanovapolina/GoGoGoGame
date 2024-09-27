@@ -6,9 +6,6 @@ public class CharacterStats : MonoBehaviour
 {
     public int Hp { get; set; }
     public int MaxHp { get; set; } = 100;
-    public int Ammo { get; set; }
-    public int MaxAmmo { get; set; } = 30;
-    public int Damage { get; set; } = 20;
     public int Experience { get; set; } = 0;
     public int MaxExperience { get; set; } = 1000;
     public int Level { get; set; } = 1;
@@ -19,7 +16,7 @@ public class CharacterStats : MonoBehaviour
     CharacterStats()
     {
        this.Hp = this.MaxHp;
-       this.Ammo = this.MaxAmmo;
+       //this.Ammo = this.MaxAmmo;
        //this.Armor = this.MaxArmor;
     }
 

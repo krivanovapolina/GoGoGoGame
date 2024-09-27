@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
 public class CharAttack : MonoBehaviour
@@ -17,10 +18,13 @@ public class CharAttack : MonoBehaviour
     public GunType gunType = GunType.Pistol;
 
     CharacterMove move;
+    CharacterStats stats;
+    public List<WeaponSO> weapons;
 
     void Start()
     {
         move = GetComponent<CharacterMove>();
+        stats = GetComponent<CharacterStats>();
     }
 
     void Update()
@@ -30,17 +34,20 @@ public class CharAttack : MonoBehaviour
 
     public void Bullet()
     {
-        Debug.Log("asdsad");
+        Debug.Log("vistrel");
         if (canShoot)
         {
-            Instantiate(bulletPref, transform.position + move.GetShootingDirection(), Quaternion.identity);
+            Instantiate(HandleChangeGun().ProjectilePrefab, transform.position + move.GetShootingDirection(), Quaternion.identity);
             canShoot = false;
+            HandleChangeGun().Ammo -= 1;
         }
     }
 
 
-    void HandleChangeGun()
+    public WeaponSO HandleChangeGun()
     {
+        WeaponSO weapon1 = null;
+
         if (Input.GetKeyDown(KeyCode.Alpha1))
             gunType = GunType.Pistol;
 
@@ -49,8 +56,14 @@ public class CharAttack : MonoBehaviour
             gunType = GunType.Knife;
 
         }
-        Debug.Log(gunType);
-
+        foreach (var weapon in weapons)
+        {
+            if (weapon.GunType == gunType)
+            {
+                weapon1 = weapon;
+            }
+        }
+        return weapon1;
     }
 
     public void MeleeAttack()
@@ -68,6 +81,7 @@ public class CharAttack : MonoBehaviour
     {
         Gizmos.DrawSphere(meleeAttackPoint.position, meleeAttackRange);
     }
+
 
 }
 

@@ -7,6 +7,8 @@ using TMPro;
 public class UiScript : MonoBehaviour
 {
     CharacterStats stats;
+    
+    CharAttack charAttack;
     public Slider hpBar;
     public Slider armorBar;
     public Slider exBar;
@@ -18,6 +20,7 @@ public class UiScript : MonoBehaviour
     void Start()
     {
         stats = FindObjectOfType<CharacterStats>();
+        charAttack = FindObjectOfType<CharAttack>();
     }
 
     
@@ -31,8 +34,8 @@ public class UiScript : MonoBehaviour
         hpBar.value = stats.Hp;
         armorBar.value = stats.Armor;
         exBar.value = stats.Experience;
-        lvltext.text = stats.Level.ToString();
-        ammoText.text = stats.Ammo + "/" + stats.MaxAmmo;
-        moneyText.text = stats.Money.ToString();
+        lvltext.text = stats.Level + " LVL";
+        ammoText.text = charAttack.HandleChangeGun().Ammo + "/" + charAttack.HandleChangeGun().MaxAmmo;
+        moneyText.text = "$ " + stats.Money;
     }
 }
