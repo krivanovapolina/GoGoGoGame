@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 216ded1c35952fe48b996cf3ce82d16d, type: 3}
-  m_Name: Crossbow
+  m_Name: Knife
   m_EditorClassIdentifier: 
   Ammo: 30
   MaxAmmo: 0
@@ -19,5 +19,5 @@ MonoBehaviour:
   Damag: 0
   AttackSpeed: 0
   ReloadTime: 0
-  GunType: 2
-  ProjectilePrefab: {fileID: 5743502604976763461, guid: 6b5bffdb061482349bad551775918b70, type: 3}
+  GunType: 0
+  ProjectilePrefab: {fileID: 0}

@@ -122,6 +122,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &125403935 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5819892390594616090, guid: 14109c835272761448ab72041562a0d4, type: 3}
+  m_PrefabInstance: {fileID: 9166157853185348433}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &257102226
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,6 +367,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1948191922 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3122263240915278626, guid: 14109c835272761448ab72041562a0d4, type: 3}
+  m_PrefabInstance: {fileID: 9166157853185348433}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2088762136 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 713281466743308114, guid: 14109c835272761448ab72041562a0d4, type: 3}
+  m_PrefabInstance: {fileID: 9166157853185348433}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1306521731855824847
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -418,7 +451,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4675425694966366839, guid: b5c4e375808950b40ae90dd7f9ce3e9a, type: 3}
       propertyPath: weapons.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4675425694966366839, guid: b5c4e375808950b40ae90dd7f9ce3e9a, type: 3}
       propertyPath: weapons.Array.data[0]
@@ -428,6 +461,10 @@ PrefabInstance:
       propertyPath: weapons.Array.data[1]
       value: 
       objectReference: {fileID: 11400000, guid: 8e17a98c4f6f1554eb56e16516a97fb5, type: 2}
+    - target: {fileID: 4675425694966366839, guid: b5c4e375808950b40ae90dd7f9ce3e9a, type: 3}
+      propertyPath: weapons.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: ea01a34a5a1033649900a1b9d146865a, type: 2}
     - target: {fileID: 6437905089737143178, guid: b5c4e375808950b40ae90dd7f9ce3e9a, type: 3}
       propertyPath: m_LocalPosition.z
       value: -20
@@ -526,9 +563,41 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3122263240915278626, guid: 14109c835272761448ab72041562a0d4, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4620618288467439205, guid: 14109c835272761448ab72041562a0d4, type: 3}
       propertyPath: m_Name
       value: UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 5240504044611474160, guid: 14109c835272761448ab72041562a0d4, type: 3}
+      propertyPath: Slot1
+      value: 
+      objectReference: {fileID: 125403935}
+    - target: {fileID: 5240504044611474160, guid: 14109c835272761448ab72041562a0d4, type: 3}
+      propertyPath: Slot2
+      value: 
+      objectReference: {fileID: 2088762136}
+    - target: {fileID: 5240504044611474160, guid: 14109c835272761448ab72041562a0d4, type: 3}
+      propertyPath: Slot3
+      value: 
+      objectReference: {fileID: 1948191922}
+    - target: {fileID: 5240504044611474160, guid: 14109c835272761448ab72041562a0d4, type: 3}
+      propertyPath: Slot1.b
+      value: 0.21960786
+      objectReference: {fileID: 0}
+    - target: {fileID: 5240504044611474160, guid: 14109c835272761448ab72041562a0d4, type: 3}
+      propertyPath: Slot1.g
+      value: 0.21960786
+      objectReference: {fileID: 0}
+    - target: {fileID: 5240504044611474160, guid: 14109c835272761448ab72041562a0d4, type: 3}
+      propertyPath: Slot1.r
+      value: 0.21960786
+      objectReference: {fileID: 0}
+    - target: {fileID: 5819892390594616090, guid: 14109c835272761448ab72041562a0d4, type: 3}
+      propertyPath: m_Material
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6711186401347672007, guid: 14109c835272761448ab72041562a0d4, type: 3}
       propertyPath: m_AnchorMax.x

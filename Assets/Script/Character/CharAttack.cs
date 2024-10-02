@@ -25,11 +25,17 @@ public class CharAttack : MonoBehaviour
     {
         move = GetComponent<CharacterMove>();
         stats = GetComponent<CharacterStats>();
+        
     }
 
     void Update()
     {
         HandleChangeGun();
+    }
+
+    private void OnDestroy()
+    {
+        weapons.ForEach(weapons => weapons.ResetValues());
     }
 
     public void Bullet()
@@ -56,6 +62,11 @@ public class CharAttack : MonoBehaviour
             gunType = GunType.Knife;
 
         }
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            gunType = GunType.Crossbow;
+
+        }
         foreach (var weapon in weapons)
         {
             if (weapon.GunType == gunType)
@@ -63,6 +74,7 @@ public class CharAttack : MonoBehaviour
                 weapon1 = weapon;
             }
         }
+        Debug.Log(gunType);
         return weapon1;
     }
 
